@@ -829,9 +829,6 @@ export default function Home() {
                 alt="Logo"
               />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
-                  Administración Residencial
-                </span>
               </div>
               <p className="text-gray-400 mb-6 max-w-md text-lg leading-relaxed">
                 Transformamos comunidades con servicios de conserjería. 
