@@ -821,7 +821,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 via-teal-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+                <div>
                 <Image
                 src="/logo.png"
                 width="100"
