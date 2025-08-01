@@ -38,6 +38,7 @@ import {
   Target,
   Lightbulb
 } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,7 +87,7 @@ export default function Home() {
     },
     {
       url: "https://images.pexels.com/photos/97075/pexels-photo-97075.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      title: "Lavado Premium",
+      title: "Lavado",
       description: "Tu auto siempre impecable"
     },
     {
@@ -116,15 +117,17 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* Floating Header */}
       <header className="fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-6xl mx-auto px-4 z-50">
-        <div className="bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-100">
+        <div className="bg-cyan-50/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-cyan-100">
           <div className="flex justify-between items-center h-16 px-6">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
-                <Sparkles className="w-5 h-5 text-white" />
+              <div >
+                <Image
+                src="/logo.png"
+                width="100"
+                height="100"
+                alt="Logo"
+              />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                Vecinos Comprometidos
-              </span>
             </div>
             
             {/* Desktop Navigation */}
@@ -133,7 +136,7 @@ export default function Home() {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className="px-4 py-2 text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all duration-300 capitalize font-medium"
+                  className="px-4 py-2 text-gray-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all duration-300 capitalize font-medium"
                 >
                   {item}
                 </button>
@@ -143,7 +146,7 @@ export default function Home() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-xl text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-300"
+              className="md:hidden p-2 rounded-xl text-gray-700 hover:text-cyan-600 hover:bg-cyan-50 transition-all duration-300"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -157,7 +160,7 @@ export default function Home() {
                   <button
                     key={item}
                     onClick={() => scrollToSection(item)}
-                    className="text-left px-4 py-3 text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all duration-300 capitalize font-medium"
+                    className="text-left px-4 py-3 text-gray-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all duration-300 capitalize font-medium"
                   >
                     {item}
                   </button>
@@ -170,7 +173,7 @@ export default function Home() {
 
       {/* Hero Section with Carousel */}
       <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-teal-900/20 to-cyan-900/20 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-teal-900/20 to-cyan-900/20 z-10"></div>
         
         {/* Background Carousel */}
         <Carousel className="absolute inset-0 w-full h-full">
@@ -178,9 +181,11 @@ export default function Home() {
             {heroImages.map((image, index) => (
               <CarouselItem key={index}>
                 <div className="relative w-full h-screen">
-                  <img 
+                  <Image 
                     src={image.url}
                     alt={image.title}
+                    width={1920}
+                    height={1080}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
@@ -198,7 +203,7 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-6">
                 <div className="flex items-center space-x-2">
-                  <Badge className="bg-emerald-500/20 text-emerald-100 border-emerald-500/30 hover:bg-emerald-500/30 backdrop-blur-sm">
+                  <Badge className="bg-cyan-500/20 text-cyan-100 border-cyan-500/30 hover:bg-cyan-500/30 backdrop-blur-sm">
                     <Award className="w-4 h-4 mr-1" />
                     Servicios Certificados
                   </Badge>
@@ -210,13 +215,13 @@ export default function Home() {
                 
                 <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
                   Tu hogar en las
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-400 to-cyan-400">
                     mejores manos
                   </span>
                 </h1>
                 
                 <p className="text-xl text-gray-200 leading-relaxed max-w-2xl">
-                  Transformamos tu fraccionamiento con servicios de conserjería premium. 
+                  Transformamos tu fraccionamiento con servicios de conserjería. 
                   Lavado de autos, jardinería profesional y mantenimiento integral, 
                   todo con la calidad que mereces.
                 </p>
@@ -226,7 +231,7 @@ export default function Home() {
                 <Button 
                   onClick={() => scrollToSection('servicios')} 
                   size="lg" 
-                  className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105"
+                  className="bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105"
                 >
                   <Play className="mr-2 w-5 h-5" />
                   Descubrir Servicios
@@ -235,21 +240,21 @@ export default function Home() {
                   onClick={() => scrollToSection('contacto')} 
                   variant="outline" 
                   size="lg"
-                  className="border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 backdrop-blur-sm transition-all duration-300"
+                  className="border-2 border-white/30  hover:bg-white hover:text-gray-900 backdrop-blur-sm transition-all duration-300"
                 >
                   <MessageSquare className="mr-2 w-5 h-5" />
                   Contactar Ahora
                 </Button>
               </div>
 
-              {/* Progress Indicator */}
+              {/* Progress Indicator
               <div className="space-y-2">
                 <div className="flex justify-between text-sm text-gray-300">
                   <span>Cargando experiencia premium</span>
                   <span>{progress}%</span>
                 </div>
                 <Progress value={progress} className="h-2 bg-white/20" />
-              </div>
+              </div> */}
             </div>
 
             {/* Stats Cards */}
@@ -257,7 +262,7 @@ export default function Home() {
               {stats.map((stat, index) => (
                 <Card key={index} className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
                   <CardContent className="p-6 text-center">
-                    <stat.icon className="w-8 h-8 mx-auto mb-2 text-emerald-400" />
+                    <stat.icon className="w-8 h-8 mx-auto mb-2 text-cyan-400" />
                     <div className="text-2xl font-bold text-white">{stat.number}</div>
                     <div className="text-sm text-gray-300">{stat.label}</div>
                   </CardContent>
@@ -279,13 +284,13 @@ export default function Home() {
       <section id="servicios" className="py-24 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <Badge className="bg-emerald-100 text-emerald-800 mb-4">
+            <Badge className="bg-cyan-100 text-cyan-800 mb-4">
               <Target className="w-4 h-4 mr-1" />
-              Servicios Premium
+              Servicios
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Experiencia completa para tu
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600"> comunidad</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600"> comunidad</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Cada servicio está diseñado con atención al detalle y compromiso con la excelencia
@@ -315,7 +320,7 @@ export default function Home() {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
                   <div className="flex items-center space-x-3">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-xl">
+                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-xl">
                       <Car className="w-8 h-8 text-white" />
                     </div>
                     <div>
@@ -331,9 +336,9 @@ export default function Home() {
                   </p>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-xl">
-                      <CheckCircle className="w-6 h-6 text-blue-600" />
-                      <span className="font-medium text-gray-800">Productos Premium</span>
+                    <div className="flex items-center space-x-3 p-4 bg-cyan-50 rounded-xl">
+                      <CheckCircle className="w-6 h-6 text-cyan-600" />
+                      <span className="font-medium text-gray-800">Productos</span>
                     </div>
                     <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-xl">
                       <Leaf className="w-6 h-6 text-green-600" />
@@ -351,8 +356,10 @@ export default function Home() {
                 </div>
 
                 <div className="relative">
-                  <div className="aspect-square bg-gradient-to-br from-blue-100 to-cyan-100 rounded-3xl overflow-hidden shadow-2xl">
-                    <img 
+                  <div className="aspect-square bg-gradient-to-br from-cyan-100 to-cyan-100 rounded-3xl overflow-hidden shadow-2xl">
+                    <Image
+                    width={600}
+                    height={600} 
                       src="https://images.pexels.com/photos/97075/pexels-photo-97075.jpeg?auto=compress&cs=tinysrgb&w=800"
                       alt="Lavado de autos profesional"
                       className="w-full h-full object-cover"
@@ -360,7 +367,7 @@ export default function Home() {
                   </div>
                   <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600">30min</div>
+                      <div className="text-3xl font-bold text-cyan-600">30min</div>
                       <div className="text-sm text-gray-600">Tiempo promedio</div>
                     </div>
                   </div>
@@ -372,7 +379,7 @@ export default function Home() {
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
                   <div className="flex items-center space-x-3">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-xl">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-xl">
                       <Leaf className="w-8 h-8 text-white" />
                     </div>
                     <div>
@@ -413,8 +420,10 @@ export default function Home() {
                 </div>
 
                 <div className="relative">
-                  <div className="aspect-square bg-gradient-to-br from-green-100 to-emerald-100 rounded-3xl overflow-hidden shadow-2xl">
-                    <img 
+                  <div className="aspect-square bg-gradient-to-br from-green-100 to-cyan-100 rounded-3xl overflow-hidden shadow-2xl">
+                    <Image
+                      width={600}
+                      height={600} 
                       src="https://images.pexels.com/photos/1400375/pexels-photo-1400375.jpeg?auto=compress&cs=tinysrgb&w=800"
                       alt="Servicios de jardinería profesional"
                       className="w-full h-full object-cover"
@@ -472,7 +481,9 @@ export default function Home() {
 
                 <div className="relative">
                   <div className="aspect-square bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl overflow-hidden shadow-2xl">
-                    <img 
+                    <Image
+                      width={600}
+                      height={600} 
                       src="https://images.pexels.com/photos/1249611/pexels-photo-1249611.jpeg?auto=compress&cs=tinysrgb&w=800"
                       alt="Servicios generales de mantenimiento"
                       className="w-full h-full object-cover"
@@ -517,17 +528,13 @@ export default function Home() {
                 <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <Card className="border-0 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-500">
                     <div className="aspect-square overflow-hidden">
-                      <img 
+                      <Image 
                         src={image}
+                        width={600}
+                        height={600}
                         alt={`Trabajo realizado ${index + 1}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-4 left-4 text-white">
-                        <div className="font-semibold">Proyecto #{index + 1}</div>
-                        <div className="text-sm opacity-90">Trabajo completado</div>
-                      </div>
                     </div>
                   </Card>
                 </CarouselItem>
@@ -540,16 +547,16 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonios" className="py-24 bg-gradient-to-br from-emerald-50 to-teal-50">
+      <section id="testimonios" className="py-24 bg-gradient-to-br from-cyan-50 to-teal-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <Badge className="bg-emerald-100 text-emerald-800 mb-4">
+            <Badge className="bg-cyan-100 text-cyan-800 mb-4">
               <MessageSquare className="w-4 h-4 mr-1" />
               Testimonios
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Historias de
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600"> éxito</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-teal-600"> éxito</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               La confianza de nuestros vecinos es nuestro mayor logro
@@ -560,7 +567,7 @@ export default function Home() {
             {[
               {
                 name: "María Carmen Rodríguez",
-                role: "Residencial Los Pinos",
+                role: "Misión Real Castilla",
                 image: "MC",
                 rating: 5,
                 text: "El servicio de lavado de autos es excepcional. Mi vehículo siempre queda impecable y el equipo es extremadamente profesional. La comodidad de tenerlo en casa no tiene precio.",
@@ -568,19 +575,19 @@ export default function Home() {
               },
               {
                 name: "José Antonio López",
-                role: "Villa del Sol",
+                role: "Las Quintas Residencial",
                 image: "JL",
                 rating: 5,
                 text: "Los jardines de nuestro fraccionamiento han transformado completamente su apariencia. Su trabajo de jardinería es meticuloso y los resultados son evidentes en cada rincón verde.",
-                gradient: "from-blue-400 to-indigo-600"
+                gradient: "from-cyan-400 to-indigo-600"
               },
               {
                 name: "Ana Sofía Martínez",
-                role: "Jardines del Norte",
+                role: "Torre Angeles",
                 image: "AM",
                 rating: 5,
                 text: "Los servicios generales son increíblemente completos y confiables. Cualquier problema de mantenimiento lo resuelven rápidamente y con la mejor calidad. Totalmente recomendados.",
-                gradient: "from-emerald-400 to-teal-600"
+                gradient: "from-cyan-400 to-teal-600"
               }
             ].map((testimonial, index) => (
               <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white/80 backdrop-blur-sm">
@@ -591,7 +598,7 @@ export default function Home() {
                     ))}
                   </div>
                   <blockquote className="text-gray-700 mb-6 text-lg leading-relaxed italic">
-                    "{testimonial.text}"
+                    &quot;{testimonial.text}&quot;
                   </blockquote>
                   <div className="flex items-center space-x-4">
                     <div className={`w-14 h-14 bg-gradient-to-br ${testimonial.gradient} rounded-full flex items-center justify-center shadow-lg`}>
@@ -619,7 +626,7 @@ export default function Home() {
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               ¿Listo para
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400"> transformar</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400"> transformar</span>
               <br />tu comunidad?
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -627,7 +634,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-1 gap-16 items-start">
             <div className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
@@ -636,20 +643,20 @@ export default function Home() {
                     title: "Teléfono",
                     info: "+52 (555) 123-4567",
                     description: "Disponible 24/7",
-                    gradient: "from-green-400 to-emerald-500"
+                    gradient: "from-green-400 to-cyan-500"
                   },
                   {
                     icon: Mail,
                     title: "Email",
                     info: "contacto@vecinoscomprometidos.com",
                     description: "Respuesta en 2 horas",
-                    gradient: "from-blue-400 to-cyan-500"
+                    gradient: "from-cyan-400 to-cyan-500"
                   },
                   {
                     icon: MapPin,
                     title: "Ubicación",
-                    info: "Ciudad de México",
-                    description: "Cobertura metropolitana",
+                    info: "Durango",
+                    description: "Ciudad de Durango, México",
                     gradient: "from-orange-400 to-red-500"
                   },
                   {
@@ -685,12 +692,12 @@ export default function Home() {
                   {[
                     "Más de 500 clientes satisfechos",
                     "Equipo profesional certificado",
-                    "Productos eco-friendly premium",
+                    "Productos eco-friendly",
                     "Garantía de satisfacción 100%",
                     "Disponibilidad 24/7 para emergencias"
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-emerald-400" />
+                      <CheckCircle className="w-5 h-5 text-cyan-400" />
                       <span className="text-gray-300">{benefit}</span>
                     </div>
                   ))}
@@ -698,10 +705,10 @@ export default function Home() {
               </div>
             </div>
 
-            <Card className="bg-white/10 backdrop-blur-md border-white/20 shadow-2xl">
+            {/* <Card className="bg-white/10 backdrop-blur-md border-white/20 shadow-2xl">
               <CardHeader>
                 <CardTitle className="text-3xl text-white flex items-center">
-                  <Sparkles className="w-8 h-8 mr-3 text-emerald-400" />
+                  <Sparkles className="w-8 h-8 mr-3 text-cyan-400" />
                   Solicita tu Cotización
                 </CardTitle>
                 <CardDescription className="text-gray-300 text-lg">
@@ -722,7 +729,7 @@ export default function Home() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-emerald-400"
+                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-cyan-400"
                         placeholder="Tu nombre completo"
                       />
                     </div>
@@ -737,7 +744,7 @@ export default function Home() {
                         required
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-emerald-400"
+                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-cyan-400"
                         placeholder="Tu número de teléfono"
                       />
                     </div>
@@ -754,7 +761,7 @@ export default function Home() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-emerald-400"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-cyan-400"
                       placeholder="tu@email.com"
                     />
                   </div>
@@ -769,7 +776,7 @@ export default function Home() {
                       required
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent"
                     >
                       <option value="" className="text-gray-900">Selecciona un servicio</option>
                       <option value="lavado-autos" className="text-gray-900">🚗 Lavado de Autos</option>
@@ -789,21 +796,21 @@ export default function Home() {
                       rows={4}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-emerald-400"
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-cyan-400"
                       placeholder="Cuéntanos más detalles sobre lo que necesitas..."
                     />
                   </div>
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white py-4 text-lg font-semibold shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 transform hover:scale-105"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 text-white py-4 text-lg font-semibold shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105"
                   >
                     <TrendingUp className="mr-2 w-6 h-6" />
                     Solicitar Cotización Gratuita
                   </Button>
                 </form>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </section>
@@ -814,15 +821,15 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 via-teal-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
                   <Sparkles className="w-6 h-6 text-white" />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                  Vecinos Comprometidos
+                <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                  Administración Residencial
                 </span>
               </div>
               <p className="text-gray-400 mb-6 max-w-md text-lg leading-relaxed">
-                Transformamos comunidades con servicios de conserjería premium. 
+                Transformamos comunidades con servicios de conserjería. 
                 Comprometidos con la excelencia, la confianza y la satisfacción de nuestros vecinos.
               </p>
               <div className="flex space-x-4">
@@ -834,7 +841,7 @@ export default function Home() {
                   <a
                     key={index}
                     href={social.href}
-                    className="w-12 h-12 bg-white/10 hover:bg-emerald-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+                    className="w-12 h-12 bg-white/10 hover:bg-cyan-500 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
                   >
                     <social.icon className="w-5 h-5" />
                   </a>
@@ -843,16 +850,16 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="text-xl font-bold mb-6 text-emerald-400">Servicios</h3>
+              <h3 className="text-xl font-bold mb-6 text-cyan-400">Servicios</h3>
               <ul className="space-y-3 text-gray-400">
                 {[
-                  "🚗 Lavado de Autos Premium",
+                  "🚗 Lavado de Autos",
                   "🌿 Jardinería Profesional", 
                   "🛠️ Servicios Generales",
                   "🏠 Mantenimiento Integral",
                   "⚡ Servicios de Emergencia"
                 ].map((service, index) => (
-                  <li key={index} className="hover:text-emerald-400 transition-colors cursor-pointer">
+                  <li key={index} className="hover:text-cyan-400 transition-colors cursor-pointer">
                     {service}
                   </li>
                 ))}
@@ -863,19 +870,19 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-6 text-teal-400">Contacto Rápido</h3>
               <ul className="space-y-3 text-gray-400">
                 <li className="flex items-center space-x-2">
-                  <Phone className="w-4 h-4 text-emerald-400" />
+                  <Phone className="w-4 h-4 text-cyan-400" />
                   <span>+52 (555) 123-4567</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Mail className="w-4 h-4 text-emerald-400" />
-                  <span>contacto@vecinoscomprometidos.com</span>
+                  <Mail className="w-4 h-4 text-cyan-400" />
+                  <span>contacto@conserjeria.com</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <MapPin className="w-4 h-4 text-emerald-400" />
-                  <span>Ciudad de México</span>
+                  <MapPin className="w-4 h-4 text-cyan-400" />
+                  <span>Durango</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4 text-emerald-400" />
+                  <Clock className="w-4 h-4 text-cyan-400" />
                   <span>24/7 Disponible</span>
                 </li>
               </ul>
@@ -886,12 +893,12 @@ export default function Home() {
 
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 mb-4 md:mb-0">
-              &copy; 2024 Vecinos Comprometidos. Todos los derechos reservados.
+              &copy; 2020 Administración Residencial. Todos los derechos reservados.
             </p>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <span className="hover:text-emerald-400 cursor-pointer transition-colors">Política de Privacidad</span>
-              <span className="hover:text-emerald-400 cursor-pointer transition-colors">Términos de Servicio</span>
-              <span className="hover:text-emerald-400 cursor-pointer transition-colors">Aviso Legal</span>
+              <span className="hover:text-cyan-400 cursor-pointer transition-colors">Política de Privacidad</span>
+              <span className="hover:text-cyan-400 cursor-pointer transition-colors">Términos de Servicio</span>
+              <span className="hover:text-cyan-400 cursor-pointer transition-colors">Aviso Legal</span>
             </div>
           </div>
         </div>
