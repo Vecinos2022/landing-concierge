@@ -822,7 +822,12 @@ export default function Home() {
             <div className="col-span-2">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 via-teal-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Sparkles className="w-6 h-6 text-white" />
+                <Image
+                src="/logo.png"
+                width="100"
+                height="100"
+                alt="Logo"
+              />
                 </div>
                 <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
                   Administración Residencial
